@@ -19,6 +19,10 @@ export const useLocationStore = create<LocationStore>(set => ({
     set({ currentCity: city })
   },
   async fetchLocationList(city) {
+    if (!city) {
+      set({ locationList: null })
+      return
+    }
     set({ isLoading: true, error: null })
     try {
       const locationList = await getLocationList(city)
