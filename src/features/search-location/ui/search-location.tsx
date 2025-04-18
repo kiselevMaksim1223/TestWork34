@@ -17,7 +17,10 @@ export const SearchLocation = () => {
   }
 
   return (
-    <div className={'position-relative w-100'} style={{ maxWidth: 400 }}>
+    <div
+      className={'position-relative w-100 mx-auto'}
+      style={{ maxWidth: 450 }}
+    >
       <input
         type={'text'}
         className={'form-control'}

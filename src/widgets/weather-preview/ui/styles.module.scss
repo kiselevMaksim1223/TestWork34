@@ -1,0 +1,49 @@
+.cardSoft {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 0.75rem;
+}
+
+.weatherIcon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  background-color: #f1f3f5;
+  padding: 0.25rem;
+}
+
+.cardSoft {
+  border-radius: 1rem;
+  color: #212529;
+  transition: background 0.5s ease-in-out;
+}
+
+.clear {
+  background: linear-gradient(to right, #fceabb, #f8b500); /* sunny yellow */
+}
+
+.cloudy {
+  background: linear-gradient(to right, #d7d2cc, #304352); /* gray and blue */
+}
+
+.rainy {
+  background: linear-gradient(to right, #4b79a1, #283e51); /* dark blue rainy */
+}
+
+.stormy {
+  background: linear-gradient(to right, #1f1c2c, #928dab); /* electric violet */
+  color: #fff;
+}
+
+.snowy {
+  background: linear-gradient(to right, #e0eafc, #cfdef3); /* soft icy blue */
+}
+
+.foggy {
+  background: linear-gradient(to right, #bdc3c7, #2c3e50); /* misty grey */
+  color: #fff;
+}
+
+.default {
+  background: #f8f9fa;
+}

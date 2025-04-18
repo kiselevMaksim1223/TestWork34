@@ -1,30 +1,26 @@
-import { SearchLocation } from '@features/search-location/ui/search-location'
-import { WeatherPreview } from '@widgets/weather-preview/ui/weather-preview'
+import { WeatherPreview } from '@widgets/weather-preview'
 
-import styles from './page.module.css'
+import { SearchLocation } from '@features/search-location'
 
 export default async function Home() {
-  // const headersList = await headers()
-  // const ip = headersList.get('x-user-ip') || 'Unknown'
-  // const country = headersList.get('x-user-country') || 'Unknown'
-  // const city = headersList.get('x-user-city') || 'Unknown'
-  // const region = headersList.get('x-user-region') || 'Unknown'
-  // const acceptLanguage = headersList.get('accept-language') || 'en-US,en;q=0.9'
-
+  //TODO: add server-side rendering to get the user's location
   return (
-    <div className={styles.page}>
-      <h1>Weather App</h1>
-      <p>Welcome to the Weather App!</p>
-      <p>
-        This app provides weather information for various locations around the
-        world.
+    <div className={`text-center py-5`}>
+      <h1 className={`display-4 fw-bold mb-4 text-primary`}>Weather App</h1>
+      <p className={'lead mb-3 text-muted'}>
+        Welcome to your personal weather assistant!
       </p>
-      <p>
-        You can search for a location and get the current weather conditions,
-        forecasts, and more.
+      <p className={'mb-2 text-muted'}>
+        Get real-time weather updates for cities across the globe.
       </p>
-      <p>Enjoy exploring the weather!</p>
-      <SearchLocation />
+      <p className={'mb-4 text-muted'}>
+        Enter a location below to begin exploring.
+      </p>
+
+      <div className={'mb-5'}>
+        <SearchLocation />
+      </div>
+
       <WeatherPreview initialCoords={{ lat: 0, lon: 0 }} />
     </div>
   )

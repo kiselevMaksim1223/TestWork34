@@ -1,0 +1,1 @@
+export { getLocationFromIP } from './getLocationFromIP'
