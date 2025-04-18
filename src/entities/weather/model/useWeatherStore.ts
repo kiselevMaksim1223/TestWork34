@@ -1,5 +1,6 @@
-import { getCurrentWeather, CurrentWeather, GeoCoordinates } from '@shared/api'
 import { create } from 'zustand'
+
+import { getCurrentWeather, CurrentWeather, GeoCoordinates } from '@shared/api'
 
 interface WeatherStore {
   weather: CurrentWeather | null
@@ -21,8 +22,8 @@ export const useWeatherStore = create<WeatherStore>(set => ({
     try {
       const weather = preloadedData ?? (await getCurrentWeather(coord))
       set({ weather })
-    } catch (e: any) {
-      set({ error: e.message })
+    } catch (e: unknown) {
+      set({ error: (e as Error).message })
     } finally {
       set({ isLoading: false })
     }

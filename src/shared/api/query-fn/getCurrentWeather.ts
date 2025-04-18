@@ -1,7 +1,8 @@
 import { AxiosError } from 'axios'
+
 import { axiosInstanceWeather } from '../axiosInstance'
-import { CurrentWeather } from '../types/weather'
 import { GeoCoordinates } from '../types/geolocation'
+import { CurrentWeather } from '../types/weather'
 
 export const getCurrentWeather = async ({ lat, lon }: GeoCoordinates) => {
   try {

@@ -5,17 +5,19 @@ import importPlugin from 'eslint-plugin-import'
 import unusedImports from 'eslint-plugin-unused-imports'
 import pluginPrettier from 'eslint-plugin-prettier'
 import boundaries from 'eslint-plugin-boundaries'
+import react from 'eslint-plugin-react'
 
-/** @type {import("eslint").Linter.FlatConfig[]} */
+/** @type {import("eslint").Linter.Config[]} */
 export default [
   js.configs.recommended,
-  ...tseslint.configs.recommendedTypeChecked,
+  ...tseslint.configs.recommended,
   {
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
-        project: ['./tsconfig.json']
+        project: './tsconfig.json',
+        tsconfigRootDir: import.meta.dirname
       }
     },
     plugins: {
@@ -23,11 +25,23 @@ export default [
       import: importPlugin,
       'unused-imports': unusedImports,
       prettier: pluginPrettier,
+      react,
       boundaries
     },
     rules: {
+      ...prettier.rules,
       'prettier/prettier': 'error',
       'unused-imports/no-unused-imports': 'error',
+      'no-console': 'error',
+      'no-nested-ternary': 'error',
+
+      'react/jsx-curly-brace-presence': [
+        'error',
+        {
+          props: 'always',
+          children: 'never'
+        }
+      ],
       '@typescript-eslint/no-unused-vars': [
         'warn',
         { argsIgnorePattern: '^_' }
@@ -49,7 +63,7 @@ export default [
         'error',
         {
           default: 'disallow',
-          message: 'Import from "{{element}}" to "{{type}}" is not allowed',
+          message: 'Restricted path import',
           rules: [
             { from: 'shared', allow: ['shared'] },
             { from: 'entities', allow: ['shared', 'entities'] },
@@ -82,6 +96,5 @@ export default [
         }
       }
     }
-  },
-  prettier
+  }
 ]

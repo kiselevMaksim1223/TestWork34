@@ -1,5 +1,6 @@
-import { getLocationList, GeoLocation } from '@shared/api'
 import { create } from 'zustand'
+
+import { getLocationList, GeoLocation } from '@shared/api'
 
 interface LocationStore {
   locationList: GeoLocation[] | null

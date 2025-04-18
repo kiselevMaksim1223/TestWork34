@@ -1,11 +1,12 @@
 import { useEffect } from 'react'
-import { useWeatherStore } from './useWeatherStore'
-import { CurrentWeather, GeoCoordinates } from '@shared/api'
+
 import { useLocationStore } from '@entities/geolocation'
+import { CurrentWeather, GeoCoordinates } from '@shared/api'
+
+import { useWeatherStore } from './useWeatherStore'
 
 export const useWeatherData = ({
-  initialCoords,
-  ssrWeather
+  initialCoords
 }: {
   initialCoords: GeoCoordinates
   ssrWeather?: CurrentWeather
@@ -16,7 +17,6 @@ export const useWeatherData = ({
     lat: currentCity?.lat ?? initialCoords.lat,
     lon: currentCity?.lon ?? initialCoords.lon
   }
-  console.log('locationCoords', locationCoords)
 
   const error = useWeatherStore(s => s.error)
   const isLoading = useWeatherStore(s => s.isLoading)

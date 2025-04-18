@@ -1,7 +1,8 @@
 import { AxiosError } from 'axios'
+
 import { axiosInstanceWeather } from '../axiosInstance'
-import { ForecastWeather } from '../types/weather'
 import { GeoCoordinates } from '../types/geolocation'
+import { ForecastWeather } from '../types/weather'
 
 const DAYS_COUNT = 7
 

@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+
 import { useLocationStore } from './useLocationStore'
 
 export const useLocationList = (city: string) => {

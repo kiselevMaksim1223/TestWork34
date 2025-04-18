@@ -1,4 +1,5 @@
 import { AxiosError } from 'axios'
+
 import { axiosInstanceGeo } from '../axiosInstance'
 import { GeoLocation } from '../types/geolocation'
 
