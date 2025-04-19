@@ -23,6 +23,7 @@ export const WeatherPreview = ({ ssrWeather }: Props) => {
   if (error) return <div className={'text-danger mt-4 fs-5'}>{error}</div>
 
   const { weather: w } = weather
+
   const weatherInfo = w[0]
 
   const weatherClass = getWeatherClass(weatherInfo.main)
@@ -38,7 +39,7 @@ export const WeatherPreview = ({ ssrWeather }: Props) => {
             <Link
               href={{
                 pathname: '/forecast',
-                query: { lat: weather.coord.lat, lon: weather.coord.lat }
+                query: { lat: weather.coord.lat, lon: weather.coord.lon }
               }}
             >
               <button type={'button'} className={'btn btn-outline-secondary'}>

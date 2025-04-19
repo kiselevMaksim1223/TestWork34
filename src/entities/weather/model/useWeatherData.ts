@@ -38,7 +38,7 @@ export const useWeatherData = ({
     fetchCityWeather(locationCoords)
   }, [currentCity?.lat, currentCity?.lon, initialData])
 
-  if (savedInitialData.current) {
+  if (savedInitialData.current && isFirstClientLoad.current) {
     const data = savedInitialData.current
 
     return { weather: data, error: null, isLoading: false }
