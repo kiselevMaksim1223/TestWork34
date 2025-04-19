@@ -1,4 +1,4 @@
-import { useFavoriteLocationsStore } from '@entities/geolocation'
+import { useFavoriteLocationsStore } from '@entities/favorites-locations'
 import { useWeatherStore } from '@entities/weather'
 
 export const AddToFavorite = () => {
