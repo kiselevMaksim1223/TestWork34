@@ -15,10 +15,10 @@ export const FullWeatherInfo = ({ ssrWeather }: Props) => {
     <Fragment>
       <h3 className={'text-primary fw-bold mb-2'}>{name}</h3>
       <div className={'fs-5 mb-3'}>
-        <strong>🌡 Temperature:</strong> {main?.temp}°C <br />
+        <strong>🌡 Temperature:</strong> {main?.temp.toFixed(1)}°C <br />
         <small className={'text-muted'}>
-          Feels like: {main?.feels_like}°C • Min: {main?.temp_min}°C • Max:{' '}
-          {main?.temp_max}°C
+          Feels like: {main?.feels_like.toFixed(1)}°C • Min:{' '}
+          {main?.temp_min.toFixed(1)}°C • Max: {main?.temp_max.toFixed(1)}°C
         </small>
       </div>
 

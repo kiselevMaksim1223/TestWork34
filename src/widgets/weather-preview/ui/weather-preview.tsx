@@ -34,11 +34,27 @@ export const WeatherPreview = ({ ssrWeather }: Props) => {
       <div className={'row align-items-center g-4'}>
         <div className={'col-md-4 text-center'}>
           <WeatherIcon weatherInfo={weatherInfo} />
-          <Link href={'/forecast'} passHref>
-            <button type={'button'} className={'btn btn-outline-secondary'}>
-              📅 See 7-Day Forecast
-            </button>
-          </Link>
+          <div className={'d-flex flex-column align-items-center gap-2'}>
+            <Link
+              href={{
+                pathname: '/forecast',
+                query: { lat: weather.coord.lat, lon: weather.coord.lat }
+              }}
+            >
+              <button type={'button'} className={'btn btn-outline-secondary'}>
+                📅 See 6-Day Forecast
+              </button>
+            </Link>
+            <Link
+              href={{
+                pathname: '/favorites'
+              }}
+            >
+              <button type={'button'} className={'btn btn-outline-secondary'}>
+                🌟 See Favorite Locations
+              </button>
+            </Link>
+          </div>
         </div>
 
         <div className={'col-md-8'}>

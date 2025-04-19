@@ -19,7 +19,7 @@ export default async function Home() {
         Welcome to your personal weather assistant!
       </p>
       <p className={'mb-2 text-muted'}>
-        Get real-time weather updates for cities across the globe.
+        Get weather updates for cities across the globe.
       </p>
       <p className={'mb-4 text-muted'}>
         Enter a location below to begin exploring.

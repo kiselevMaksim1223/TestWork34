@@ -1,1 +1,0 @@
-export { getLocationFromIP } from './getLocationFromIP'
