@@ -6,4 +6,6 @@ export type GeoLocation = {
   state: string
 }
 
-export type GeoCoordinates = Pick<GeoLocation, 'lat' | 'lon'>
+export type GeoCoordinates = {
+  [key in keyof Pick<GeoLocation, 'lat' | 'lon'>]: string
+}

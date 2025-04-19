@@ -6,6 +6,7 @@ interface WeatherStore {
   weather: CurrentWeather | null
   isLoading: boolean
   error: string | null
+  setWeather: (weather: CurrentWeather | null) => void
   fetchCityWeather: (
     coord: GeoCoordinates,
     preloadedData?: CurrentWeather
@@ -16,6 +17,7 @@ export const useWeatherStore = create<WeatherStore>(set => ({
   weather: null,
   isLoading: false,
   error: null,
+  setWeather: weather => set({ weather }),
   async fetchCityWeather(coord, preloadedData?) {
     set({ isLoading: true, error: null })
 

@@ -1,9 +1,17 @@
-import { WeatherPreview } from '@widgets/weather-preview'
+import { cookies } from 'next/headers'
 
 import { SearchLocation } from '@features/search-location'
+import { getCurrentWeather } from '@shared/api'
+import { LocationDetector } from '@widgets/geolocation'
+import { WeatherPreview } from '@widgets/weather-preview'
 
 export default async function Home() {
-  //TODO: add server-side rendering to get the user's location
+  const cookiesStore = await cookies()
+  const lat = cookiesStore.get('user-latitude')?.value
+  const lon = cookiesStore.get('user-longitude')?.value
+
+  const data = await getCurrentWeather({ lat, lon })
+
   return (
     <div className={`text-center py-5`}>
       <h1 className={`display-4 fw-bold mb-4 text-primary`}>Weather App</h1>
@@ -21,7 +29,8 @@ export default async function Home() {
         <SearchLocation />
       </div>
 
-      <WeatherPreview initialCoords={{ lat: 0, lon: 0 }} />
+      <WeatherPreview ssrWeather={data} />
+      <LocationDetector />
     </div>
   )
 }

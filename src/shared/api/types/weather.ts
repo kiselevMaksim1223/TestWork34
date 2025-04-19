@@ -14,10 +14,12 @@ export type WeatherMain = {
 }
 
 export type CurrentWeather = {
+  id: number
   name: string
   main: WeatherMain
   weather: Weather[]
   wind: { speed: number; gust: number }
+  coord: { lon: number; lat: number }
 }
 
 export type ForecastWeatherList = {

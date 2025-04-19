@@ -4,7 +4,11 @@ import { axiosInstanceWeather } from '../axiosInstance'
 import { GeoCoordinates } from '../types/geolocation'
 import { CurrentWeather } from '../types/weather'
 
-export const getCurrentWeather = async ({ lat, lon }: GeoCoordinates) => {
+export const getCurrentWeather = async ({
+  lat,
+  lon
+}: Partial<GeoCoordinates>) => {
+  if (!lat || !lon) return
   try {
     const res = await axiosInstanceWeather.get<CurrentWeather>('/weather', {
       params: { lat, lon }
