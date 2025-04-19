@@ -26,6 +26,8 @@ export type ForecastWeatherList = {
   dt: number
   main: WeatherMain
   weather: Weather[]
+  wind: { speed: number; gust: number }
+  dt_txt: string
 }
 
 export interface ForecastWeather {

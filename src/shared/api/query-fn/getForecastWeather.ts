@@ -4,12 +4,10 @@ import { axiosInstanceWeather } from '../axiosInstance'
 import { GeoCoordinates } from '../types/geolocation'
 import { ForecastWeather } from '../types/weather'
 
-const DAYS_COUNT = 7
-
 export const getForecastWeather = async ({ lat, lon }: GeoCoordinates) => {
   try {
     const res = await axiosInstanceWeather.get<ForecastWeather>('/forecast', {
-      params: { lat, lon, cnt: DAYS_COUNT }
+      params: { lat, lon }
     })
     return res.data
   } catch (error: unknown) {
