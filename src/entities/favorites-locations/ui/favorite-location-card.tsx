@@ -1,4 +1,6 @@
 'use client'
+import Link from 'next/link'
+
 import { CurrentWeather } from '@shared/api'
 
 import { useFavoriteLocationsStore } from '../model/useFavoriteLocations'
@@ -10,7 +12,11 @@ interface FavoriteCardProps {
 export const FavoriteLocationCard = ({ location }: FavoriteCardProps) => {
   const onRemove = useFavoriteLocationsStore(s => s.removeLocation)
   return (
-    <div
+    <Link
+      href={{
+        pathname: '/forecast',
+        query: { lat: location.coord.lat, lon: location.coord.lon }
+      }}
       className={
         'text-decoration-none text-dark col-12 col-sm-6 col-md-4 col-lg-3'
       }
@@ -36,6 +42,6 @@ export const FavoriteLocationCard = ({ location }: FavoriteCardProps) => {
           </p>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
